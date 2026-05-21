@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import type { CardEffect, ManualSection } from "../types/manual";
 import { CardEffectList } from "./CardEffectList";
 import { CardGallery } from "./CardGallery";
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export function ManualView({ sections, effects }: Props) {
-  const [activeSlug, setActiveSlug] = useState("victory");
+  const [activeSlug, setActiveSlug] = useState("contents");
 
   const handleNavigate = (slug: string) => {
     setActiveSlug(slug);
@@ -41,12 +41,15 @@ export function ManualView({ sections, effects }: Props) {
           </aside>
 
           <div className="space-y-8">
-            <div className="lg:hidden">
-              <EvolutionDiagram />
-            </div>
-
-            {sections.map((section) => (
-              <SectionCard key={section._id} section={section} />
+            {sections.map((section, index) => (
+              <Fragment key={section._id}>
+                <SectionCard section={section} />
+                {index === 1 && (
+                  <div className="lg:hidden">
+                    <EvolutionDiagram />
+                  </div>
+                )}
+              </Fragment>
             ))}
 
             <CardGallery />

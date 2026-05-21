@@ -3,26 +3,26 @@ import type { CardEffect, ManualSection } from "../types/manual";
 /** 説明書の表示データ */
 export const STATIC_SECTIONS: ManualSection[] = [
   {
-    _id: "static-victory",
-    slug: "victory",
-    title: "勝利条件",
-    icon: "🏆",
-    order: 1,
-    paragraphs: [
-      "同じ色・同じ段階のきのこを3枚集めて進化させ、最終段階である「キングきのこ（3段階目）」を場に出したプレイヤーの勝利となります。",
-    ],
-  },
-  {
     _id: "static-contents",
     slug: "contents",
     title: "内容物（計100枚）",
     icon: "📦",
-    order: 2,
+    order: 1,
     paragraphs: ["色はそれぞれ、赤・青・黄・緑・紫の5色です。"],
     listItems: [
       "1段階目：きのこ — 各色10枚（計50枚）",
       "2段階目：きのこのこ — 各色8枚（計40枚）",
       "3段階目：キングきのこ — 各色2枚（計10枚）",
+    ],
+  },
+  {
+    _id: "static-victory",
+    slug: "victory",
+    title: "勝利条件",
+    icon: "🏆",
+    order: 2,
+    paragraphs: [
+      "同じ色・同じ段階のきのこを3枚集めて進化させ、最終段階である「キングきのこ（3段階目）」を場に出したプレイヤーの勝利となります。",
     ],
   },
   {
