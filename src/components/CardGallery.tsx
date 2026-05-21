@@ -26,13 +26,13 @@ export function CardGallery() {
         カード一覧
       </h2>
       <p className="mb-8 text-stone-600">
-        提出用デザインのカードイラストです。色ごとに3段階へ進化します。
+        提出用デザインのカードイラストです。色ごとにレベル3まで進化します。
       </p>
 
       {STAGES.map((stage) => (
         <div key={stage} className={stage > 1 ? "mt-10" : undefined}>
           <h3 className="text-lg font-bold text-stone-900">
-            {stage}段階目：{CARD_STAGE_LABELS[stage]}
+            レベル{stage}：{CARD_STAGE_LABELS[stage]}
           </h3>
           <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
             {CARD_COLORS.map((color) => (
