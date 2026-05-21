@@ -40,6 +40,28 @@ export function Hero() {
         <span className="font-bold text-amber-800">キングきのこ</span>
         を降臨させよう。
       </p>
+
+      <blockquote className="relative mt-8 max-w-2xl border-l-4 border-amber-400/80 pl-4 text-lg font-medium italic text-amber-900/90 sm:text-xl">
+        「集え、5つの魔力。呼び覚ませ、伝説の精霊王――。」
+      </blockquote>
+
+      <div className="relative mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-stone-600">
+        <p>
+          ここは、魔法と菌類が共鳴する神秘の世界。
+          かつて世界を統べた精霊王
+          <span className="font-semibold text-amber-800">「キングきのこ」</span>
+          は、災厄によって小さな「きのこ」の姿へ退化し、封印されてしまいました。
+        </p>
+        <p>
+          プレイヤーは偉大なる召喚士となり、同じ属性の魔力を集めて進化の儀式を行います。
+          相手の呪文を跳ね返し、魔力を奪い合う、知略を尽くした精霊召喚バトルが今、幕を開ける！
+        </p>
+        <p>
+          いち早く究極の
+          <span className="font-semibold text-amber-800">「キングきのこ」</span>
+          をその手で降臨させ、勝利を掴み取れ！
+        </p>
+      </div>
     </header>
   );
 }
