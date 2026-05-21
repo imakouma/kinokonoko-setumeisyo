@@ -11,7 +11,7 @@ const STAGES = [
 function EvolutionArrow() {
   return (
     <div
-      className="flex shrink-0 items-center justify-center text-amber-500 max-lg:px-1 lg:py-0.5"
+      className="flex shrink-0 items-center justify-center py-1 text-amber-500"
       aria-hidden
     >
       <svg
@@ -21,20 +21,9 @@ function EvolutionArrow() {
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="hidden h-7 w-7 lg:block"
+        className="h-8 w-8"
       >
         <path d="M12 5v14M12 19l-5-5M12 19l5-5" />
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-8 w-8 lg:hidden"
-      >
-        <path d="M5 12h14M19 12l-5-5M19 12l-5 5" />
       </svg>
     </div>
   );
@@ -47,14 +36,14 @@ export function EvolutionDiagram() {
         進化の流れ
       </h2>
 
-      <div className="flex max-lg:flex-row max-lg:flex-wrap max-lg:items-center max-lg:justify-center max-lg:gap-x-1 max-lg:gap-y-4 lg:flex-col lg:gap-1">
+      <div className="flex flex-col items-center gap-1">
         {STAGES.map((item, index) => (
-          <div key={item.label} className="contents">
+          <div key={item.label} className="flex w-full flex-col items-center">
             {index > 0 && <EvolutionArrow />}
             <div
-              className={`flex min-w-0 flex-col items-center text-center max-lg:w-[7.5rem] sm:max-lg:w-[8.5rem] lg:w-full lg:flex-row lg:items-center lg:gap-3 lg:text-left ${
+              className={`flex w-full max-w-xs flex-col items-center text-center sm:max-w-sm lg:max-w-none lg:flex-row lg:items-center lg:gap-3 lg:text-left ${
                 "highlight" in item && item.highlight
-                  ? "rounded-xl bg-amber-50/80 p-2 ring-1 ring-amber-200/80 max-lg:p-3 lg:p-3"
+                  ? "rounded-xl bg-amber-50/80 p-3 ring-1 ring-amber-200/80"
                   : ""
               }`}
             >
