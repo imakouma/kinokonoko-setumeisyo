@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { CardEffect, ManualSection } from "../types/manual";
 import { CardEffectList } from "./CardEffectList";
+import { CardGallery } from "./CardGallery";
 import { EvolutionDiagram } from "./EvolutionDiagram";
 import { Hero } from "./Hero";
 import { SectionCard } from "./SectionCard";
@@ -12,7 +13,7 @@ type Props = {
 };
 
 export function ManualView({ sections, effects }: Props) {
-  const [activeSlug, setActiveSlug] = useState("overview");
+  const [activeSlug, setActiveSlug] = useState("victory");
 
   const handleNavigate = (slug: string) => {
     setActiveSlug(slug);
@@ -47,6 +48,8 @@ export function ManualView({ sections, effects }: Props) {
             {sections.map((section) => (
               <SectionCard key={section._id} section={section} />
             ))}
+
+            <CardGallery />
 
             {effects.length > 0 && <CardEffectList effects={effects} />}
           </div>

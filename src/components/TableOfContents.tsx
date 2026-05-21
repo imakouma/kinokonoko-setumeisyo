@@ -35,6 +35,20 @@ export function TableOfContents({ sections, activeSlug, onNavigate }: Props) {
         <li>
           <button
             type="button"
+            onClick={() => onNavigate("card-gallery")}
+            className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+              activeSlug === "card-gallery"
+                ? "bg-amber-100 font-semibold text-amber-900"
+                : "text-stone-600 hover:bg-stone-50 hover:text-stone-900"
+            }`}
+          >
+            <span aria-hidden>🃏</span>
+            <span>カード一覧</span>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
             onClick={() => onNavigate("effects")}
             className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
               activeSlug === "effects"

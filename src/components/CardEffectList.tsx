@@ -1,5 +1,6 @@
+import { CardImage } from "./CardImage";
 import { COLOR_STYLES, isCardColor } from "../lib/colors";
-import type { CardEffect } from "../types/manual";
+import type { CardEffect, CardColor } from "../types/manual";
 
 type Props = {
   effects: CardEffect[];
@@ -28,20 +29,35 @@ export function CardEffectList({ effects }: Props) {
       </p>
 
       <EffectStage
-        title="1段階目：きのこ"
+        title="レベル1：きのこ"
         subtitle="山札・手札に多い基本カード"
         effects={stage1}
       />
       <EffectStage
-        title="2段階目：きのこのこ"
+        title="レベル2：きのこのこ"
         subtitle="進化で手に入る強力なカード"
         effects={stage2}
         className="mt-10"
       />
 
-      <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-        <strong>3段階目：キングきのこ</strong>
-        は特殊効果を持たず、場に出した瞬間に勝利となります。
+      <div className="mt-10 rounded-xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
+        <h3 className="text-xl font-bold text-amber-950">レベル3：キングきのこ</h3>
+        <p className="mt-2 text-base leading-relaxed text-amber-900">
+          特殊効果を持たず、場に出した瞬間に勝利となります。
+        </p>
+        <ul className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-5">
+          {(["red", "blue", "yellow", "green", "purple"] as const).map(
+            (color) => (
+              <li key={color}>
+                <CardImage
+                  stage={3}
+                  color={color}
+                  className="h-32 w-auto rounded-lg sm:h-36"
+                />
+              </li>
+            ),
+          )}
+        </ul>
       </div>
     </section>
   );
@@ -72,24 +88,31 @@ function EffectStage({
 }
 
 function EffectCard({ effect }: { effect: CardEffect }) {
-  const styles = isCardColor(effect.color)
-    ? COLOR_STYLES[effect.color]
-    : COLOR_STYLES.red;
+  const color = isCardColor(effect.color) ? effect.color : "red";
+  const styles = COLOR_STYLES[color];
+  const stage = effect.stage as 1 | 2;
 
   return (
     <article
-      className={`rounded-xl border p-4 ${styles.bg} ${styles.border}`}
+      className={`flex gap-4 rounded-xl border p-4 ${styles.bg} ${styles.border}`}
     >
-      <div className="mb-2 flex items-center gap-2">
-        <span aria-hidden>{styles.emoji}</span>
-        <span className={`font-bold ${styles.text}`}>{effect.colorLabel}</span>
-        <span className="rounded-full bg-white/70 px-2 py-0.5 text-xs font-medium text-stone-600">
-          {effect.attribute}
-        </span>
+      <CardImage
+        stage={stage}
+        color={color as CardColor}
+        className="h-28 w-auto shrink-0 rounded-lg"
+      />
+      <div className="min-w-0 flex-1">
+        <div className="mb-2 flex flex-wrap items-center gap-2">
+          <span aria-hidden>{styles.emoji}</span>
+          <span className={`font-bold ${styles.text}`}>{effect.colorLabel}</span>
+          <span className="rounded-full bg-white/70 px-2 py-0.5 text-xs font-medium text-stone-600">
+            {effect.attribute}
+          </span>
+        </div>
+        <p className="text-sm leading-relaxed text-stone-700">
+          {effect.description}
+        </p>
       </div>
-      <p className="text-sm leading-relaxed text-stone-700">
-        {effect.description}
-      </p>
     </article>
   );
 }

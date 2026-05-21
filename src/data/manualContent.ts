@@ -3,16 +3,6 @@ import type { CardEffect, ManualSection } from "../types/manual";
 /** 説明書の表示データ */
 export const STATIC_SECTIONS: ManualSection[] = [
   {
-    _id: "static-overview",
-    slug: "overview",
-    title: "ゲーム概要",
-    icon: "🍄",
-    order: 0,
-    paragraphs: [
-      "同じ色のきのこを集めて進化させ、伝説の「キングきのこ」を降臨させることを目指すカードゲームです。",
-    ],
-  },
-  {
     _id: "static-victory",
     slug: "victory",
     title: "勝利条件",
