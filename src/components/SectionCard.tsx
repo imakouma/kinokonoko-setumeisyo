@@ -1,4 +1,5 @@
 import type { ManualSection } from "../types/manual";
+import { ColorLabelsText } from "./ColorLabelsText";
 
 type Props = {
   section: ManualSection;
@@ -25,7 +26,7 @@ export function SectionCard({ section }: Props) {
           key={paragraph}
           className="mb-3 leading-relaxed text-stone-700 last:mb-0"
         >
-          {paragraph}
+          <ColorLabelsText text={paragraph} />
         </p>
       ))}
 

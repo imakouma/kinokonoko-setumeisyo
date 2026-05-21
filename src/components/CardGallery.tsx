@@ -7,6 +7,7 @@ import {
   getCardImageAlt,
   type CardStage,
 } from "../data/cardImages";
+import { COLOR_STYLES } from "../lib/colors";
 
 const STAGES: CardStage[] = [1, 2, 3];
 
@@ -44,7 +45,9 @@ export function CardGallery() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="text-sm font-medium text-stone-700">
+                <span
+                  className={`text-sm font-semibold ${COLOR_STYLES[color].text}`}
+                >
                   {CARD_COLOR_LABELS[color]}
                 </span>
               </li>
