@@ -5,13 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:convex": "convex dev",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "convex": "^1.39.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

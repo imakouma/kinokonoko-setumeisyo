@@ -4,16 +4,14 @@ import { CardEffectList } from "./CardEffectList";
 import { EvolutionDiagram } from "./EvolutionDiagram";
 import { Hero } from "./Hero";
 import { SectionCard } from "./SectionCard";
-import { SetupBanner } from "./SetupBanner";
 import { TableOfContents } from "./TableOfContents";
 
 type Props = {
   sections: ManualSection[];
   effects: CardEffect[];
-  topBanner?: string | null;
 };
 
-export function ManualView({ sections, effects, topBanner }: Props) {
+export function ManualView({ sections, effects }: Props) {
   const [activeSlug, setActiveSlug] = useState("overview");
 
   const handleNavigate = (slug: string) => {
@@ -28,12 +26,6 @@ export function ManualView({ sections, effects, topBanner }: Props) {
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-lime-100 via-stone-100 to-amber-50">
       <main className="mx-auto max-w-6xl px-4 py-8 sm:py-12">
         <Hero />
-
-        {topBanner && (
-          <div className="mt-6">
-            <SetupBanner message={topBanner} />
-          </div>
-        )}
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[240px_1fr]">
           <aside className="hidden lg:block">

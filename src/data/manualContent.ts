@@ -1,6 +1,6 @@
 import type { CardEffect, ManualSection } from "../types/manual";
 
-/** Convex 未接続時のフォールバック用（内容は convex/init.ts と同期） */
+/** 説明書の表示データ */
 export const STATIC_SECTIONS: ManualSection[] = [
   {
     _id: "static-overview",
