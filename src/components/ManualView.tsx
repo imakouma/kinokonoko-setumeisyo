@@ -35,20 +35,13 @@ export function ManualView({ sections, effects }: Props) {
               activeSlug={activeSlug}
               onNavigate={handleNavigate}
             />
-            <div className="mt-6">
-              <EvolutionDiagram />
-            </div>
           </aside>
 
           <div className="space-y-8">
             {sections.map((section, index) => (
               <Fragment key={section._id}>
                 <SectionCard section={section} />
-                {index === 1 && (
-                  <div className="lg:hidden">
-                    <EvolutionDiagram />
-                  </div>
-                )}
+                {index === 1 && <EvolutionDiagram />}
               </Fragment>
             ))}
 
