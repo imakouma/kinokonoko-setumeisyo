@@ -17,7 +17,7 @@ export function CardGallery() {
       id="card-gallery"
       className="scroll-mt-24 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8"
     >
-      <h2 className="mb-2 flex items-center gap-3 text-2xl font-bold text-stone-900">
+      <h2 className="mb-8 flex items-center gap-3 text-2xl font-bold text-stone-900">
         <span
           className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-xl"
           aria-hidden
@@ -26,10 +26,6 @@ export function CardGallery() {
         </span>
         カード一覧
       </h2>
-      <p className="mb-8 text-stone-600">
-        提出用デザインのカードイラストです。色ごとにレベル3まで進化します。
-      </p>
-
       {STAGES.map((stage) => (
         <div key={stage} className={stage > 1 ? "mt-10" : undefined}>
           <h3 className="text-lg font-bold text-stone-900">

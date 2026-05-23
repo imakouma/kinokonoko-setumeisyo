@@ -101,9 +101,9 @@ export const STATIC_EFFECTS: CardEffect[] = [
     stageLabel: "1段階目：きのこ",
     color: "blue",
     colorLabel: "青",
-    attribute: "防御 / 交換",
+    attribute: "防御",
     description:
-      "【防御】相手が自分に対して使った「紫（手札破壊）」や「黄（交換）」の効果を無効化する。【交換】相手を一人指名する。自分の手札1枚と、相手のランダムの手札1枚を交換する。",
+      "【防御】相手が自分に対して使った「紫（手札破壊）」や「黄（交換）」の効果を無効化する。",
     order: 1,
   },
   {
