@@ -1,7 +1,6 @@
 import { Fragment, useState } from "react";
 import type { CardEffect, ManualSection } from "../types/manual";
 import { CardEffectList } from "./CardEffectList";
-import { CardGallery } from "./CardGallery";
 import { EvolutionDiagram } from "./EvolutionDiagram";
 import { Hero } from "./Hero";
 import { SectionCard } from "./SectionCard";
@@ -44,8 +43,6 @@ export function ManualView({ sections, effects }: Props) {
                 {index === 1 && <EvolutionDiagram />}
               </Fragment>
             ))}
-
-            <CardGallery />
 
             {effects.length > 0 && <CardEffectList effects={effects} />}
           </div>

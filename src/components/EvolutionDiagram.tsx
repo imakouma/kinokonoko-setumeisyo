@@ -11,7 +11,7 @@ const STAGES = [
 function EvolutionArrow() {
   return (
     <div
-      className="flex shrink-0 items-center justify-center py-1 text-amber-500 lg:px-2 lg:py-0"
+      className="flex shrink-0 items-center justify-center px-0.5 text-amber-500 sm:px-2"
       aria-hidden
     >
       <svg
@@ -21,18 +21,7 @@ function EvolutionArrow() {
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="h-8 w-8 lg:hidden"
-      >
-        <path d="M12 5v14M12 19l-5-5M12 19l5-5" />
-      </svg>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="hidden h-7 w-7 lg:block"
+        className="h-6 w-6 sm:h-7 sm:w-7"
       >
         <path d="M5 12h14M19 12l-5-5M19 12l-5 5" />
       </svg>
@@ -47,34 +36,36 @@ export function EvolutionDiagram() {
         進化の流れ
       </h2>
 
-      <div className="mx-auto mt-6 flex max-w-4xl flex-col items-center lg:mt-8 lg:flex-row lg:items-center lg:justify-center lg:gap-2">
+      <div className="mx-auto mt-6 flex max-w-4xl flex-row flex-nowrap items-center justify-center gap-0 overflow-x-auto pb-1 sm:mt-8 sm:gap-2 sm:pb-0">
         {STAGES.map((item, index) => (
-          <div key={item.label} className="flex flex-col items-center lg:flex-row">
+          <div key={item.label} className="flex shrink-0 flex-row items-center">
             {index > 0 && <EvolutionArrow />}
             <div
-              className={`flex w-[9.5rem] flex-col items-center text-center sm:w-[10.5rem] ${
+              className={`flex w-[7.25rem] flex-col items-center text-center sm:w-[10.5rem] ${
                 "highlight" in item && item.highlight
-                  ? "rounded-2xl bg-amber-50/90 p-4 ring-1 ring-amber-200/80"
-                  : "px-2 py-1"
+                  ? "rounded-2xl bg-amber-50/90 p-3 ring-1 ring-amber-200/80 sm:p-4"
+                  : "px-1 py-1 sm:px-2"
               }`}
             >
               <CardImage
                 stage={item.stage}
                 color={EXAMPLE_COLOR}
-                className="h-28 w-auto shrink-0 rounded-lg sm:h-32 lg:h-28"
+                className="h-24 w-auto shrink-0 rounded-lg sm:h-32"
               />
-              <div className="mt-3 min-w-0">
-                <p className="text-base font-semibold text-stone-900">
+              <div className="mt-2 min-w-0 sm:mt-3">
+                <p className="text-sm font-semibold text-stone-900 sm:text-base">
                   {item.label}
                 </p>
-                <p className="mt-0.5 text-sm text-stone-500">{item.count}</p>
+                <p className="mt-0.5 text-xs text-stone-500 sm:text-sm">
+                  {item.count}
+                </p>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <p className="mx-auto mt-6 max-w-xl text-center text-sm leading-relaxed text-stone-500 lg:mt-8">
+      <p className="mx-auto mt-6 max-w-xl text-center text-sm leading-relaxed text-stone-500 sm:mt-8">
         同色・同段階3枚で進化。キングきのこは手札から場へ出して即勝利。
       </p>
     </aside>
