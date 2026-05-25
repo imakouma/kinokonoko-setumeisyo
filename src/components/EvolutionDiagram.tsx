@@ -8,6 +8,16 @@ const STAGES = [
   { label: "キングきのこ", count: "勝利！", stage: 3 as const, highlight: true },
 ] as const;
 
+const STAGE_COLUMN =
+  "flex w-[5.5rem] shrink-0 flex-col items-center p-2 text-center sm:w-[9.5rem] sm:p-3";
+const CARD_SLOT =
+  "flex h-[5.5rem] w-full items-center justify-center sm:h-[7.5rem]";
+const CARD_IMG = "h-full w-full object-contain";
+const CAPTION =
+  "mt-2 flex h-[2.75rem] w-full flex-col items-center justify-center leading-tight sm:mt-3 sm:h-[3.25rem]";
+const LABEL = "text-xs font-semibold text-stone-900 sm:text-sm";
+const COUNT = "mt-0.5 text-[0.65rem] text-stone-500 sm:text-xs";
+
 function EvolutionArrow() {
   return (
     <div
@@ -21,7 +31,7 @@ function EvolutionArrow() {
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="h-6 w-6 sm:h-7 sm:w-7"
+        className="h-5 w-5 sm:h-7 sm:w-7"
       >
         <path d="M5 12h14M19 12l-5-5M19 12l-5 5" />
       </svg>
@@ -36,29 +46,27 @@ export function EvolutionDiagram() {
         進化の流れ
       </h2>
 
-      <div className="mx-auto mt-6 flex max-w-4xl flex-row flex-nowrap items-center justify-center gap-0 overflow-x-auto pb-1 sm:mt-8 sm:gap-2 sm:pb-0">
+      <div className="mx-auto mt-6 flex max-w-4xl flex-row flex-nowrap items-start justify-center sm:mt-8">
         {STAGES.map((item, index) => (
           <div key={item.label} className="flex shrink-0 flex-row items-center">
             {index > 0 && <EvolutionArrow />}
             <div
-              className={`flex w-[7.25rem] flex-col items-center text-center sm:w-[10.5rem] ${
+              className={`${STAGE_COLUMN} ${
                 "highlight" in item && item.highlight
-                  ? "rounded-2xl bg-amber-50/90 p-3 ring-1 ring-amber-200/80 sm:p-4"
-                  : "px-1 py-1 sm:px-2"
+                  ? "rounded-xl bg-amber-50/90 ring-1 ring-amber-200/80"
+                  : ""
               }`}
             >
-              <CardImage
-                stage={item.stage}
-                color={EXAMPLE_COLOR}
-                className="h-24 w-auto shrink-0 rounded-lg sm:h-32"
-              />
-              <div className="mt-2 min-w-0 sm:mt-3">
-                <p className="text-sm font-semibold text-stone-900 sm:text-base">
-                  {item.label}
-                </p>
-                <p className="mt-0.5 text-xs text-stone-500 sm:text-sm">
-                  {item.count}
-                </p>
+              <div className={CARD_SLOT}>
+                <CardImage
+                  stage={item.stage}
+                  color={EXAMPLE_COLOR}
+                  className={CARD_IMG}
+                />
+              </div>
+              <div className={CAPTION}>
+                <p className={LABEL}>{item.label}</p>
+                <p className={COUNT}>{item.count}</p>
               </div>
             </div>
           </div>
